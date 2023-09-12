@@ -10,6 +10,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { DrawerComponent } from './components/drawer/drawer.component';
 import { CartComponent } from './components/cart/cart.component';
 import { IconModule } from './icons/icon.module';
+import { CarouselComponent } from './components/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { IconModule } from './icons/icon.module';
     MenuComponent,
     DrawerComponent,
     CartComponent,
+    CarouselComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, IconModule],
   providers: [],

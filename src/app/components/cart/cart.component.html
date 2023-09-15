@@ -9,26 +9,59 @@
       </label>
       <div
         tabindex="0"
-        class="mt-5 z-[40] card card-compact dropdown-content w-[350px] h-[350px] -left-[15.2rem] bg-base-100 shadow"
+        class="mt-5 z-[40] card card-compact dropdown-content w-[350px] min-h-[350px] -left-[15.2rem] bg-base-100 shadow"
       >
         <div class="p-4 w-full flex flex-col h-full">
           <span class="font-bold text-lg py-2">Cart</span>
           <hr class="border-dark-grayish-blue" />
-          <div class="flex justify-center items-center">
+          <div
+            *ngIf="items.length == 0"
+            class="flex justify-center items-center w-full h-full pt-20"
+          >
             <span class="text-dark-grayish-blue">Your cart is empty</span>
+          </div>
+          <div
+            *ngIf="items && items.length > 0"
+            class="flex justify-center items-center flex-col w-full"
+          >
+            <div
+              *ngFor="let item of items; let i = index"
+              class="flex w-full justify-center items-center max-h-28 mt-2 p-2"
+            >
+              <div class="flex justify-center w-16 h-16">
+                <img [src]="item.imgProduct" class="rounded-md" />
+              </div>
+              <div class="w-[100%] pl-2 flex flex-col justify-center">
+                <div class="w-full flex items-center">
+                  <span class="text-[12px] pl-2 pr-2">{{ item.title }}</span>
+                  <button (click)="deleteProduct(item)" class="btn-warning">
+                    <app-icon-delete></app-icon-delete>
+                  </button>
+                </div>
+                <div class="w-full flex items-center">
+                  <span class="pl-2 pr-2">${{ item.salePrice }}.00</span>
+                  <span *ngIf="item.amount > 0" class="pr-2">x</span>
+                  <span *ngIf="item.amount > 0">${{ item.amount }}.00</span>
+                  <span
+                    *ngIf="item.amount > 0"
+                    class="font-bold text-black-75 pl-2"
+                    >${{
+                      item.amount > 0 ? item.amount * item.salePrice : null
+                    }}.00</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="w-full pt-3">
+              <button
+                class="bg-orange text-white font-semibold p-2 rounded-md w-full"
+              >
+                Checkout
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="dropdown dropdown-end">
-      <label
-        tabindex="0"
-        class="btn btn-ghost btn-circle avatar hover:bg-orange"
-      >
-        <div class="w-10 rounded-full">
-          <img src="assets/images/image-avatar.png" />
-        </div>
-      </label>
     </div>
   </div>
 </div>

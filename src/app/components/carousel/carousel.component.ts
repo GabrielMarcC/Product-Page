@@ -7,10 +7,5 @@ import { imgData } from 'src/app/data/imgData';
   styleUrls: ['./carousel.component.css'],
 })
 export class CarouselComponent {
-  selectedIndex = '0';
   images = [...imgData];
-
-  setId(id: number) {
-    this.selectedIndex = `#${id}`;
-  }
 }

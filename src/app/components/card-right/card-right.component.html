@@ -4,13 +4,17 @@
     class="pt-4 flex flex-col justify-center w-full p-4"
   >
     <h3 class="uppercase text-orange text-[12px] font-bold">sneaker company</h3>
-    <h1 class="font-bold text-[30px] pt-2 text-black-75">
+    <h1
+      class="font-bold text-[30px] pt-2 text-black-75 lg:text-[45px] lg:leading-tight"
+    >
       {{ product.title }}
     </h1>
-    <p class="text-justify py-2 text-dark-grayish-blue">
+    <p class="text-justify py-2 text-dark-grayish-blue lg:py-6 lg:text-[18px]">
       {{ product.description }}
     </p>
-    <div class="flex justify-between py-4 w-[100%] items-center">
+    <div
+      class="flex justify-between py-4 w-[100%] items-center lg:flex-col lg:items-start"
+    >
       <div class="flex gap-3 items-center">
         <div class="flex">
           <span class="text-black-75 text-[30px] font-black"
@@ -23,13 +27,15 @@
           <span class="text-orange">{{ product.sale }}%</span>
         </div>
       </div>
-      <div class="text-dark-grayish-blue flex items-end">
+      <div class="text-dark-grayish-blue flex items-end lg:py-2">
         <span class="opacity-60 line-through">${{ product.price }}.00</span>
       </div>
     </div>
-    <div class="py-4">
-      <div class="flex bg-light-grayish-blue w-full h-11 mb-4 rounded-md">
-        <div class="flex items-center justify-between w-full">
+    <div class="py-4 lg:flex lg:items-center">
+      <div
+        class="flex bg-light-grayish-blue w-full lg:w-[70%] lg:mr-4 h-11 mb-4 lg:mb-0 rounded-md"
+      >
+        <div class="flex items-center justify-between w-full" role="button">
           <button
             class="p-4 hover:opacity-50"
             (click)="decrementQuantity(product)"
@@ -45,15 +51,16 @@
           </button>
         </div>
       </div>
-      <button
-        class="w-[100%] h-11 self-center bg-orange text-white rounded-md hover:opacity-50"
+      <div
+        class="w-full flex justify-center items-center h-11 self-center bg-orange text-white rounded-md hover:opacity-50"
         (click)="addToCart(product)"
+        role="button"
       >
-        <div class="flex justify-center gap-4 font-semibold">
+        <button class="flex justify-center gap-4 font-semibold">
           <app-icon-cart fill="#ffffff"></app-icon-cart>
           Add to cart
-        </div>
-      </button>
+        </button>
+      </div>
     </div>
   </div>
 </div>

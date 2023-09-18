@@ -9,7 +9,7 @@
       </label>
       <div
         tabindex="0"
-        class="mt-5 z-[40] card card-compact dropdown-content w-[350px] min-h-[350px] -left-[15.2rem] bg-base-100 shadow"
+        class="mt-5 z-[40] card card-compact dropdown-content w-[350px] min-h-[350px] -left-[15.2rem] bg-base-100 shadow lg:-left-40"
       >
         <div class="p-4 w-full flex flex-col h-full">
           <span class="font-bold text-lg py-2">Cart</span>
@@ -41,7 +41,7 @@
                 <div class="w-full flex items-center">
                   <span class="pl-2 pr-2">${{ item.salePrice }}.00</span>
                   <span *ngIf="item.amount > 0" class="pr-2">x</span>
-                  <span *ngIf="item.amount > 0">${{ item.amount }}.00</span>
+                  <span *ngIf="item.amount > 0">{{ item.amount }}</span>
                   <span
                     *ngIf="item.amount > 0"
                     class="font-bold text-black-75 pl-2"

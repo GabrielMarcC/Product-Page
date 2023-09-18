@@ -11,8 +11,8 @@ import { DrawerComponent } from './components/drawer/drawer.component';
 import { CartComponent } from './components/cart/cart.component';
 import { IconModule } from './icons/icon.module';
 import { CarouselComponent } from './components/carousel/carousel.component';
-import { LightgalleryModule } from 'lightgallery/angular';
 import { LightboxComponent } from './components/lightbox/lightbox.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +25,9 @@ import { LightboxComponent } from './components/lightbox/lightbox.component';
     CartComponent,
     CarouselComponent,
     LightboxComponent,
+    NavbarComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, IconModule, LightgalleryModule],
+  imports: [BrowserModule, AppRoutingModule, IconModule],
   providers: [],
   bootstrap: [AppComponent],
 })

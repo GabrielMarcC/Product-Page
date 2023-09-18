@@ -1,16 +1,27 @@
-<header class="w-[100%] flex justify-between items-center">
-  <div class="navbar w-[100%] h-20 flex items-center justify-center">
+<header
+  class="w-[100%] flex justify-between items-center lg:h-[120px] lg:border-b lg:border-dark-grayish-blue lg:border-opacity-30"
+>
+  <div class="w-[100%] h-20 flex items-center justify-center">
     <app-drawer></app-drawer>
-    <div class="w-[200px] p-4 h-6 flex items-center">
+    <div class="w-[200px] px-8 h-6 flex items-center">
       <app-icon-logo></app-icon-logo>
     </div>
+    <div class="w-full flex custom:hidden">
+      <app-navbar></app-navbar>
+    </div>
   </div>
-  <app-cart></app-cart>
-  <div class="dropdown dropdown-end">
-    <label tabindex="0" class="btn btn-ghost btn-circle avatar hover:bg-orange">
-      <div class="w-10 rounded-full">
-        <img src="assets/images/image-avatar.png" />
-      </div>
-    </label>
+
+  <div class="flex items-center justify-center lg:w-[400px] md:w-[120px]">
+    <app-cart></app-cart>
+    <div class="dropdown dropdown-end">
+      <label
+        tabindex="0"
+        class="btn btn-ghost btn-circle avatar hover:bg-orange"
+      >
+        <div class="w-10 rounded-full">
+          <img src="assets/images/image-avatar.png" />
+        </div>
+      </label>
+    </div>
   </div>
 </header>

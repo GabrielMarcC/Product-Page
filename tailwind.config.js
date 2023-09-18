@@ -10,6 +10,18 @@ module.exports = {
       "light-grayish-blue": "hsl(223, 64%, 98%)",
       white: "hsl(0, 0%, 100%)",
       "black-75": "hsl(0, 0%, 0%)",
+      "light-box": "rgba(0,0,0, .8)",
+    },
+
+    screens: {
+      sm: "640px",
+      md: "768px",
+      custom: [
+        {
+          max: "770px",
+        },
+      ],
+      lg: "1024px",
     },
   },
 };

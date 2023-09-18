@@ -1,1 +1,13 @@
-<p>lightbox works!</p>
+<dialog
+  id="lightbox"
+  class="fixed z-[999] top-0 w-full h-full bg-light-box hidden"
+>
+  <div class="flex items-center justify-center w-full h-full">
+    <div class="max-w-[600px]">
+      <button (click)="closeLightbox()">
+        <app-icon-close></app-icon-close>
+      </button>
+      <app-carousel></app-carousel>
+    </div>
+  </div>
+</dialog>

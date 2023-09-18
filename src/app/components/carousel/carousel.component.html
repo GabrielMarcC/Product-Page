@@ -1,12 +1,13 @@
 <div>
-  <div class="carousel w-full" *ngIf="images">
+  <div class="carousel w-full">
     <div
-      *ngFor="let img of images; let i = index"
+      *ngFor="let img of imgBg; let i = index"
       [id]="'slide' + i"
       class="carousel-item relative w-full z-10 lg:max-w-[600px]"
+      (click)="openLightbox()"
     >
       <img
-        [src]="img.imgBg"
+        [src]="img"
         class="w-full lg:max-w-[450px] lg:min-h-[450px] lg:max-h-[500px] lg:rounded-lg"
       />
 
@@ -14,12 +15,12 @@
         class="absolute z-20 flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 lg:hidden"
       >
         <a
-          [href]="'#slide' + (i === 0 ? images.length - 1 : i - 1)"
+          [href]="'#slide' + (i === 0 ? img.length - 1 : i - 1)"
           class="btn btn-circle"
           ><app-icon-previous></app-icon-previous></a
         >s
         <a
-          [href]="'#slide' + (i === images.length - 1 ? 0 : i + 1)"
+          [href]="'#slide' + (i === img.length - 1 ? 0 : i + 1)"
           class="btn btn-circle"
           ><app-icon-next></app-icon-next
         ></a>
@@ -27,13 +28,18 @@
     </div>
   </div>
   <div
-    class="w-full lg:max-w-[450px] flex justify-center items-center"
-    *ngIf="images"
+    class="w-full lg:max-w-[450px] flex justify-center items-center custom:hidden"
+    *ngIf="imgTb"
   >
-    <div *ngFor="let image of images; let i = index">
-      <div class="p-2">
-        <img [src]="image.imgThumb" class="rounded-md md:w-28 md:h-24" />
-      </div>
+    <div *ngFor="let image of imgTb; let i = index">
+      <button class="hover:opacity-30 p-2">
+        <a [href]="'#slide' + nextSlide(i)" type="img">
+          <img
+            [src]="image"
+            class="rounded-md md:w-28 md:h-24 hover:border-[3px] hover:border-orange"
+          />
+        </a>
+      </button>
     </div>
   </div>
 </div>

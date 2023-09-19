@@ -6,11 +6,11 @@ import { IProduct } from '../data/productData';
 })
 export class CartService {
   items: IProduct[] = [];
+  amount: number = 0;
   constructor() {}
 
   addToCart(product: IProduct) {
     this.items.push(product);
-    console.log(this.items);
   }
 
   getItems() {
@@ -18,10 +18,10 @@ export class CartService {
   }
 
   deleteProduct(product: IProduct) {
-    for (let i of this.items) {
-      if (i.id === product.id) {
-        this.items.splice(0, 1);
-      }
+    const index = this.items.findIndex((item) => item.id === product.id);
+
+    if (index !== -1) {
+      this.items.splice(index, 1);
     }
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { IProduct } from 'src/app/data/productData';
 import { CartService } from 'src/app/service/cart.service';
 
@@ -8,14 +8,21 @@ import { CartService } from 'src/app/service/cart.service';
 })
 export class CartComponent implements OnInit {
   items: IProduct[] = [];
+  amount: number = 0;
 
   constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
-    this.items = this.cartService.getItems();
+    this.updateCartItems();
   }
 
   deleteProduct(product: IProduct) {
     this.cartService.deleteProduct(product);
+    this.updateCartItems();
+  }
+
+  private updateCartItems() {
+    this.items = this.cartService.getItems();
+    this.amount = this.items.length;
   }
 }

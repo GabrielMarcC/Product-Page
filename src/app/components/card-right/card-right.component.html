@@ -3,7 +3,9 @@
     *ngFor="let product of products; let i = index"
     class="pt-4 flex flex-col justify-center w-full p-4"
   >
-    <h3 class="uppercase text-orange text-[12px] font-bold">sneaker company</h3>
+    <h3 class="uppercase text-orange-custom text-[12px] font-bold">
+      sneaker company
+    </h3>
     <h1
       class="font-bold text-[30px] pt-2 text-black-75 lg:text-[45px] lg:leading-tight"
     >
@@ -22,9 +24,9 @@
           >
         </div>
         <div
-          class="bg-orange bg-opacity-30 w-10 h-5 flex justify-center items-center rounded-md"
+          class="bg-orange-custom bg-opacity-30 w-10 h-5 flex justify-center items-center rounded-md"
         >
-          <span class="text-orange">{{ product.sale }}%</span>
+          <span class="text-orange-custom">{{ product.sale }}%</span>
         </div>
       </div>
       <div class="text-dark-grayish-blue flex items-end lg:py-2">
@@ -52,7 +54,7 @@
         </div>
       </div>
       <div
-        class="w-full flex justify-center items-center h-11 self-center bg-orange text-white rounded-md hover:opacity-50"
+        class="w-full flex justify-center items-center h-11 self-center bg-orange-custom text-white-custom rounded-md hover:opacity-50"
         (click)="addToCart(product)"
         role="button"
       >

@@ -4,10 +4,53 @@
 >
   <div class="flex items-center justify-center w-full h-full">
     <div class="max-w-[600px]">
-      <button (click)="closeLightbox()">
-        <app-icon-close></app-icon-close>
-      </button>
-      <app-carousel></app-carousel>
+      <div class="flex lg:justify-end p-4 lg:w-[450px]">
+        <button (click)="closeLightbox()">
+          <app-icon-close fill="hsl(26, 100%, 55%)"></app-icon-close>
+        </button>
+      </div>
+      <div class="carousel w-full">
+        <div
+          *ngFor="let img of imgBg; let i = index"
+          [id]="i"
+          class="carousel-item relative w-full z-10 lg:max-w-[600px]"
+        >
+          <img
+            [src]="img"
+            class="w-full lg:max-w-[450px] lg:min-h-[450px] lg:max-h-[500px] lg:rounded-lg"
+          />
+
+          <div
+            class="absolute z-20 flex justify-between transform -translate-y-1/2 left-5 right-5 lg:right-[10.25rem] top-1/2"
+          >
+            <a
+              [href]="'#' + (i === 0 ? img.length - 1 : i - 1)"
+              class="btn btn-circle"
+              ><app-icon-previous></app-icon-previous
+            ></a>
+            <a
+              [href]="'#' + (i === img.length - 1 ? 0 : i + 1)"
+              class="btn btn-circle"
+              ><app-icon-next></app-icon-next
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full lg:max-w-[450px] flex justify-center items-center custom:hidden"
+        *ngIf="imgTb"
+      >
+        <div *ngFor="let image of imgTb; let i = index">
+          <button class="hover:opacity-30 p-2">
+            <a [href]="'#' + nextSlide(i)" type="img">
+              <img
+                [src]="image"
+                class="rounded-md md:w-28 md:h-24 hover:border-[3px] hover:border-orange-custom"
+              />
+            </a>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </dialog>

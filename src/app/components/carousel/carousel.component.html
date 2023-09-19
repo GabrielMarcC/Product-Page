@@ -2,7 +2,7 @@
   <div class="carousel w-full">
     <div
       *ngFor="let img of imgBg; let i = index"
-      [id]="'slide' + i"
+      [id]="'product' + i"
       class="carousel-item relative w-full z-10 lg:max-w-[600px]"
       (click)="openLightbox()"
     >
@@ -15,12 +15,12 @@
         class="absolute z-20 flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2 lg:hidden"
       >
         <a
-          [href]="'#slide' + (i === 0 ? img.length - 1 : i - 1)"
+          [href]="'#product' + (i === 0 ? img.length - 1 : i - 1)"
           class="btn btn-circle"
-          ><app-icon-previous></app-icon-previous></a
-        >s
+          ><app-icon-previous></app-icon-previous
+        ></a>
         <a
-          [href]="'#slide' + (i === img.length - 1 ? 0 : i + 1)"
+          [href]="'#product' + (i === img.length - 1 ? 0 : i + 1)"
           class="btn btn-circle"
           ><app-icon-next></app-icon-next
         ></a>
@@ -33,10 +33,10 @@
   >
     <div *ngFor="let image of imgTb; let i = index">
       <button class="hover:opacity-30 p-2">
-        <a [href]="'#slide' + nextSlide(i)" type="img">
+        <a [href]="'#product' + nextSlide(i)" type="img">
           <img
             [src]="image"
-            class="rounded-md md:w-28 md:h-24 hover:border-[3px] hover:border-orange"
+            class="rounded-md md:w-28 md:h-24 hover:border-[3px] hover:border-orange-custom"
           />
         </a>
       </button>
